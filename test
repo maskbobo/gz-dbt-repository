@@ -1,0 +1,2 @@
+SELECT *
+FROM `le-wagon-ye.gz_raw_data.raw_gz_sales`
