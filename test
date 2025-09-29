@@ -1,0 +1,2 @@
+SELECT date_date, orders_id, pdt_id 
+FROM `le-wagon-ye.gz_raw_data.raw_gz_sales`
