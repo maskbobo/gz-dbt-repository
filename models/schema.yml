@@ -1,38 +1,78 @@
- # schema.yml
+# schema.yml
 
- version: 2
+version: 2
 
- sources:
-   - name: raw
-     schema : gz_raw_data 
-     tables:
-       - name: sales
-         identifier : raw_gz_sales 
-         description: sales of Greenweez / we have on row per product_id found in each orders_id
-         columns:
-           - name: orders_id
-             description: primarykey
-             tests:
-             - not_null
-       - name: product
-         identifier : raw_gz_product 
-         description: product of Greenweez / contains products_id, purchase_id
-         columns:
-           - name: products_id
-             description: primarykey
-             tests :
+sources:
+  - name: raw
+    schema: gz_raw_data
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales of Greenweez / we have on row per product_id found in each orders_id
+        columns:
+          - name: orders_id
+            description: primarykey
+            tests:
+              - not_null
+      - name: product
+        identifier: raw_gz_product
+        description: product of Greenweez / contains products_id, purchase_id
+        columns:
+          - name: products_id
+            description: primarykey
+            tests:
+              - unique
+              - not_null
+      - name: ship
+        identifier: raw_gz_ship
+        description: shipping details of Greenweez / contains information about the delivery of each order
+        columns:
+          - name: orders_id
+            description: primarykey
+            tests:
+              - unique
+              - not_null
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: adwords ads
+        columns:
+          - name: campaign_key
+            description: primarykey
+            tests :
              - unique
              - not_null
-       - name: ship
-         identifier : raw_gz_ship
-         description: shipping details of Greenweez / contains information about the delivery of each order
-         columns:
-           - name: orders_id
-             description: primarykey
-             tests :
+
+      - name: bing
+        identifier: raw_gz_bing
+        description: bing ads
+        columns:
+          - name: campaign_key
+            description: primarykey
+            tests :
              - unique
              - not_null
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: criteo ads
+        columns:
+          - name: campaign_key
+            description: primarykey
+            tests :
+             - unique
+             - not_null
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: facebook ads
+        columns:
+          - name: campaign_key
+            description: primarykey
+            tests :
+             - unique
+             - not_null
+
               # Freshness testing
-         loaded_at_field: "CAST(date_date AS TIMESTAMP)"
-         freshness:
-           warn_after: {count: 90, period: day}
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        freshness:
+          warn_after: { count: 90, period: day }
