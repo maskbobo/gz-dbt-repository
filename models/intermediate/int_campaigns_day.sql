@@ -1,4 +1,9 @@
-SELECT date_date, campaign_name, SUM(ads_cost) AS ads_cost, SUM(impression) AS impression, SUM(click) AS click
-FROM {{ ref('int_campaigns') }}
-GROUP BY date_date, campaign_name
-ORDER BY date_date DESC
+select
+    date_date,
+    campaign_name,
+    sum(ads_cost) as ads_cost,
+    sum(impression) as impression,
+    sum(click) as click
+from {{ ref("int_campaigns") }}
+group by date_date, campaign_name
+order by date_date desc
