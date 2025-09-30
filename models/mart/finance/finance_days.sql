@@ -1,5 +1,5 @@
 SELECT date_date,orders_id,
-SUM(orders_id) as Total_number_of_transactions,
+COUNT(orders_id) as Total_number_of_transactions,
 Sum(revenue) as Total_revenue,
 SAFE_DIVIDE(sum(revenue), count(orders_id)) as Average_Basket,
 sum(Operational_margin) as operational_margin,
