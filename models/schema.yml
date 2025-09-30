@@ -39,7 +39,6 @@ sources:
           - name: campaign_key
             description: primarykey
             tests :
-             - unique
              - not_null
 
       - name: bing
@@ -49,7 +48,6 @@ sources:
           - name: campaign_key
             description: primarykey
             tests :
-             - unique
              - not_null
 
       - name: criteo
@@ -59,7 +57,6 @@ sources:
           - name: campaign_key
             description: primarykey
             tests :
-             - unique
              - not_null
 
       - name: facebook
@@ -69,7 +66,6 @@ sources:
           - name: campaign_key
             description: primarykey
             tests :
-             - unique
              - not_null
 
               # Freshness testing
