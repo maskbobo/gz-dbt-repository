@@ -32,3 +32,7 @@
              tests :
              - unique
              - not_null
+              # Freshness testing
+         loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+         freshness:
+           warn_after: {count: 90, period: day}
